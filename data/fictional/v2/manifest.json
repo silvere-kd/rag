@@ -1,0 +1,9 @@
+{
+  "corpus_id": "fictional",
+  "version": "v2",
+  "edition_label": "ANTF v2 (fictif)",
+  "files": [
+    {"filename": "reglement-antf.md", "kind": "markdown", "text_id": "antf-reglement"},
+    {"filename": "bareme-antf.md", "kind": "markdown", "text_id": "antf-bareme"}
+  ]
+}

@@ -1,0 +1,24 @@
+[project]
+name = "rag-portfolio"
+version = "0.1.0"
+description = "French document-research assistant with measured retrieval, grounding and operating limits."
+requires-python = ">=3.11"
+dependencies = ["pypdf>=5.1", "numpy"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+# Only scripts/measure_tokenizer_fit.py needs this. Kept out of the runtime path
+# so a clean clone can ingest and test without downloading a tokenizer.
+tokenizer-check = ["transformers>=4.40"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/rag_portfolio"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+pythonpath = ["src"]

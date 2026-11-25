@@ -1,0 +1,11 @@
+{
+  "corpus_id": "constitution",
+  "version": "edition-2015-01-01",
+  "edition_label": "1 janvier 2015",
+  "files": [
+    {
+      "filename": "constitution.pdf",
+      "kind": "pdf"
+    }
+  ]
+}

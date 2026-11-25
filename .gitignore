@@ -1,0 +1,25 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+rag/
+data/**/chunks.jsonl
+out/
+
+# Derived: embedding_text + the pinned model digest reproduce it exactly,
+# and the fingerprint inside proves it. 2.2 MB of floats, not source.
+vectors.json
+
+# Local: video script material, not project documentation.
+docs/constitution-ingestion-video-material.md
+
+# Local until the question labels are reviewed. src/rag_portfolio/evaluate.py
+# and tests/test_evaluate.py stay public; the cases and saved runs do not.
+eval/
+scripts/run_smoke.py
