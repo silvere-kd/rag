@@ -9,6 +9,7 @@ import sys
 from pathlib import Path
 
 from rag_portfolio.answer import AnswerError, answer_question
+from rag_portfolio.config import CONSTITUTION_DIR, EMBED_MODEL, INDEX_FILENAME, TOP_K
 from rag_portfolio.embed import embed_passages, model_digest
 from rag_portfolio.generate import DEFAULT_MODEL, ollama_generator
 from rag_portfolio.index import IndexMismatchError, load_index, save_index
@@ -16,11 +17,9 @@ from rag_portfolio.ingest import embedding_text, ingest_pdf
 from rag_portfolio.ollama import OllamaError
 from rag_portfolio.retrieve import rank_sections
 
-PATH = Path(__file__).resolve().parents[1]
-CORPUS = PATH / "data" / "constitution"
-INDEX = PATH / "data" / "constitution" / "vectors.json"
-EMBED_MODEL = "bge-m3:latest"
-K = 5
+CORPUS = CONSTITUTION_DIR
+INDEX = CORPUS / INDEX_FILENAME
+K = TOP_K
 DEFAULT_QUESTION = "Quelle est la langue de la R\u00e9publique ?"
 
 

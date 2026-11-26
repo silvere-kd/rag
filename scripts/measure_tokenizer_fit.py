@@ -7,17 +7,18 @@ Needs the tokenizer-check extra, which is deliberately not a runtime dependency:
 
 Tokenizer files only. No model weights are downloaded and no inference runs.
 
-measure_fit itself lives in rag_portfolio.ingest, not here, so the tests can
+measure_fit itself lives in rag_portfolio.measure, not here, so the tests can
 exercise it with a stand-in counter and no download.
 """
 import json
 import sys
 from pathlib import Path
 
-from rag_portfolio.ingest import estimate_embedding_fit, ingest_pdf, measure_fit
+from rag_portfolio.config import CONSTITUTION_DIR
+from rag_portfolio.ingest import ingest_pdf
+from rag_portfolio.measure import estimate_embedding_fit, measure_fit
 
-PATH = Path(__file__).resolve().parents[1]
-CORPUS = PATH / "data" / "constitution"
+CORPUS = CONSTITUTION_DIR
 
 # Revisions are pinned because from_pretrained tracks main otherwise, and a
 # tokenizer update upstream would silently change these counts. The PDF is

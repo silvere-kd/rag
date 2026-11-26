@@ -7,8 +7,9 @@ from pathlib import Path
 
 from rag_portfolio.ingest import clean_page_text, extract_pages
 
-PATH = Path(__file__).resolve().parents[1]
-PDF = PATH / "data" / "constitution" / "constitution.pdf"
+from rag_portfolio.config import CONSTITUTION_DIR
+
+PDF = CONSTITUTION_DIR / "constitution.pdf"
 
 
 def main() -> None:

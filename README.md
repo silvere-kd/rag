@@ -24,7 +24,7 @@ Needs [Ollama](https://ollama.com) with `bge-m3` and `gemma4:12b` pulled.
 
 ```bash
 uv sync --extra dev
-uv run pytest                                  # 200 tests, no network needed
+uv run pytest                                  # the whole suite, no network needed
 uv run python scripts/search.py "Quelle est la langue de la République ?"
 ```
 
@@ -34,7 +34,9 @@ Measurements and findings live in the comments beside the code that produced the
 
 | File | Job |
 | --- | --- |
+| `config.py` | models, k, paths, and the Ollama host |
 | `ingest.py` | PDF to passages; builds the embedding input |
+| `measure.py` | token counts against an embedding model's budget |
 | `embed.py` | Ollama `/api/embed`, truncation refused |
 | `generate.py` | Ollama `/api/chat` with the schema applied |
 | `index.py` | saves vectors with a fingerprint, refuses a stale file |

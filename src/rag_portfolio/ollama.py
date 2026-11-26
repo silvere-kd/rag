@@ -8,7 +8,7 @@ import json
 import urllib.error
 import urllib.request
 
-HOST = "http://host.docker.internal:11434"
+from rag_portfolio.config import OLLAMA_HOST as HOST
 EMBED_URL = f"{HOST}/api/embed"
 TAGS_URL = f"{HOST}/api/tags"
 CHAT_URL = f"{HOST}/api/chat"

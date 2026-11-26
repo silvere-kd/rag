@@ -5,9 +5,11 @@ generate(messages) -> str callable, which is why answer_question can be tested
 without a model and this module can be tested without a host.
 """
 from rag_portfolio.answer import REQUESTED_SHAPE
+from rag_portfolio.config import GENERATION_MODEL
 from rag_portfolio.ollama import CHAT_URL, OllamaError, request
 
-DEFAULT_MODEL = "gemma4:12b"
+# Kept as a name so callers and tests have one symbol to import.
+DEFAULT_MODEL = GENERATION_MODEL
 
 
 class GenerationError(OllamaError):

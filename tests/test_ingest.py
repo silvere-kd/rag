@@ -5,7 +5,8 @@ import pytest
 from pathlib import Path
 
 from rag_portfolio.models import Section, Source
-from rag_portfolio.ingest import extract_pages, clean_page_text, detect_text_heading, assign_text_ids, detect_article_start, normalize_article_id, detect_title_heading, detect_preamble_heading, assemble_sections, file_sha256, load_sources, ingest_pdf, write_sections, export_sections, estimate_embedding_fit, measure_fit, embedding_text, DOCUMENT_TITLES, TEXT_IDS_BY_TITLE
+from rag_portfolio.ingest import extract_pages, clean_page_text, detect_text_heading, assign_text_ids, detect_article_start, normalize_article_id, detect_title_heading, detect_preamble_heading, assemble_sections, file_sha256, load_sources, ingest_pdf, write_sections, export_sections, embedding_text, DOCUMENT_TITLES, TEXT_IDS_BY_TITLE
+from rag_portfolio.measure import estimate_embedding_fit, measure_fit
 
 PATH = Path(__file__).resolve().parents[1]
 CONSTITUTION = PATH / "data" / "constitution" / "constitution.pdf"

@@ -175,9 +175,21 @@ def normalise(text: str) -> str:
 def build_messages(question: str, evidence: dict[str, Section]) -> list[dict[str, str]]:
     """The prompt, with each passage fenced inside a <Passage> element.
 
-    The fence is a boundary, not decoration. It separates text this project did
-    not write from the instructions around it, so a passage whose own content
-    reads "Question : ..." cannot be mistaken for the frame.
+    What the fence and its guard do: mark where text this project did not write
+    begins and ends, and refuse any body or question containing a tag-shaped
+    sequence that names one of the frame's elements.
+
+    What they do not do: stop prompt injection. A passage that argues in plain
+    prose, with no tags at all, can still steer the model, and this guard will
+    pass it. Nor does a verified citation establish support: _resolve proves the
+    quote is present in the passage, never that the passage backs the answer.
+
+    The attribute values are not guarded, because none of them carries document
+    content. id is ours; texte, type, numero and pages come from the ingester;
+    edition comes from the manifest. Measured across the corpus, zero attribute
+    values contain a quote or an angle bracket, and the article-number regex
+    admits only "premier", "1er" and digit forms. That holds for this packaged
+    corpus and would need rechecking for one where a document supplies them.
 
     Similarity scores are deliberately absent: a cosine is not a confidence, and
     showing one invites the model to treat a weak nearest neighbour as weak
